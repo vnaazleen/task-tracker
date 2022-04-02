@@ -4,10 +4,15 @@ import axios from 'axios'
 function Register() {
 
   const [email, setEmail] = useState('')
+  const [nickname, setNickName]  = useState('')
   const [password, setPassword ] = useState('')
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
+  }
+
+  function handleNickNameChange(e) {
+    setNickName(e.target.value)
   }
 
   function handlePasswordChange(e) {
@@ -22,6 +27,7 @@ function Register() {
       method: "POST",
       data: {
         username: email,
+        nickname: nickname,
         password: password
       },
       withCredentials: true,
@@ -40,7 +46,12 @@ function Register() {
         <form onSubmit={handleSubmit}>
           <div className='mt-3'>
             <label htmlFor='email' className='form-label'>Email</label>
-            <input type='text' name='email' id='email' className='form-control' value={email} onChange={handleEmailChange}/>
+            <input type='email' name='email' id='email' className='form-control' value={email} onChange={handleEmailChange}/>
+          </div>
+
+          <div className='mt-3'>
+            <label htmlFor='name' className='form-label'>Nick Name</label>
+            <input type='text' name='name' id='name' className='form-control' value={nickname} onChange={handleNickNameChange}/>
           </div>
 
           <div className='mt-3'>

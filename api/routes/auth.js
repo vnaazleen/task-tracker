@@ -7,14 +7,16 @@ const User = require('../model/user')
 
 
 router.post("/register", async (req, res) => {
+    console.log(req.body)
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    User.findOne({ username: req.body.email }, async (err, user) => {
+    User.findOne({ username: req.body.username }, async (err, user) => {
         if(err) console.log(err)
         if(user) res.send("User already exists")
         if(!user) {
             const newUser = new User({
-                username: req.body.email,
-                password: hashedPassword
+                username: req.body.username,
+                nickname: req.body.nickname,
+                password: hashedPassword,
             })
 
             await newUser.save()
