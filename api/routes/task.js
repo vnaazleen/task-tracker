@@ -4,7 +4,7 @@ const router = express.Router()
 const Task = require('../model/task')
 
 // ------- ADD A TASK -------------------
-router.post('/add', async (req, res) => {
+router.post('/tasks/add', async (req, res) => {
     if(req.isAuthenticated()) {
         const task = await new Task({
             title: req.body.title,
@@ -27,6 +27,17 @@ router.get('/tasks', async (req, res) => {
     if(req.isAuthenticated()) {
         const tasks = await Task.find({ userId: req.user.id })
         res.send(tasks)
+    } else {
+        res.send("Please login")
+    }
+
+})
+
+// ------- GET A TASKS -------------------
+router.get('/tasks/:id', async (req, res) => {
+    if(req.isAuthenticated()) {
+        const task = await Task.findById(req.params.id)
+        res.send(task)
     } else {
         res.send("Please login")
     }

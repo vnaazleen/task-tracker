@@ -43,7 +43,7 @@ class Tasks extends Component {
         <div className='mt-5'>
 
         <div className='mb-5'>
-          <a className='btn btn-primary' href='/add'> + Add Task </a>
+          <a className='btn btn-primary' href='/add'> <b>+</b> Add Task </a>
         </div>
 
         {

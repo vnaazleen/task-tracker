@@ -6,6 +6,7 @@ import Register from './Components/Register/Register';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import AddTask from './Components/Tasks/AddTask';
+import EditTask from './Components/Tasks/EditTask';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Routes>
               <Route exact path='/' element={<Home/>}/>
               <Route path="/add" element={<AddTask/>}/>
+              <Route path="/edit/:taskId" element={<EditTask/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/register" element={<Register/>}/>
             </Routes>

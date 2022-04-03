@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { deleteTask, editTask } from '../../controller/taskController'
-import './Task.css'
+import { useNavigate } from 'react-router'
 
 import { BsFillPenFill } from "react-icons/bs"
 import { BsFillTrashFill } from "react-icons/bs"
 
+import './Task.css'
+
 function Task(props) {
 
+  const navigate = useNavigate()
   const [ isChecked, setIsChecked ] = useState(props.task.checked)
 
   function handleCheck(e) {
@@ -26,6 +29,10 @@ function Task(props) {
     deleteTask(props.task._id)
     .then((res) => console.log(res.data))
     window.location.reload()
+  }
+
+  function handleEdit() {
+    navigate("/edit/" + props.task._id)
   }
 
   function getPriority(priority) {
@@ -55,7 +62,7 @@ function Task(props) {
             </span>
 
             <span>
-            <a href="/edit" className='btn btn-warning edit-btn'><BsFillPenFill/></a>
+            <button onClick={handleEdit} className='btn btn-warning edit-btn'><BsFillPenFill/></button>
             <button onClick={handleDelete} className='btn btn-danger del-btn'><BsFillTrashFill/></button>
             </span>
         </div>
