@@ -29,11 +29,11 @@ router.post("/register", async (req, res) => {
 router.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
       if (err) throw err
-      if (!user) res.send("No User Exists")
+      if (!user) res.send(null)
       else {
         req.logIn(user, (err) => {
           if (err) throw err
-          res.send("Successfully Authenticated")
+          res.json(req.user)
           console.log(req.user)
         })
       }
@@ -42,11 +42,11 @@ router.post("/login", (req, res, next) => {
 
 
 router.get("/user", (req, res) => {
-    console.log(req.user)
+    //console.log(req.user)
     if(req.user) {
         res.json(req.user)
     } else {
-        res.send("Please login")
+        res.send(null)
     }
 });
 

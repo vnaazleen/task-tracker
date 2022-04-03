@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import  { useNavigate  } from 'react-router-dom'
 
 function Register() {
 
   const [email, setEmail] = useState('')
   const [nickname, setNickName]  = useState('')
   const [password, setPassword ] = useState('')
+  const navigate = useNavigate ()
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
@@ -35,6 +37,7 @@ function Register() {
     })
     .then((res) => {
       console.log(res.data)
+      navigate("/login").reload()
     })
   }
 

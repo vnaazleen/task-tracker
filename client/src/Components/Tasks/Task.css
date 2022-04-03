@@ -1,0 +1,25 @@
+.Moderate {
+    background-color: #FDAF75;
+    border: 1px solid #F76E11;
+    color: white;
+    border-radius: 25px;
+    padding: 3px 7px 5px 8px;
+}
+
+
+.Important {
+    background-color: #FFA8A8;
+    border: 1px solid #E83A14;
+    color: white;
+    border-radius: 25px;
+    padding: 3px 7px 5px 7px;
+}
+
+
+.Later {
+    background-color: #85C88A;
+    border: 1px solid #019267;
+    color: white;
+    border-radius: 25px;
+    padding: 3px 7px 5px 7px;
+}

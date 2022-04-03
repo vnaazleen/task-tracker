@@ -1,28 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-
-function Profile() {
-
-  const [email, setEmail] = useState('')
-
-  useEffect(() => {
-    axios(
-      {
-        method: "GET",
-        withCredentials: true,
-        url: "http://localhost:3500/user",
-      }
-    )
-    .then((res) => {
-      setEmail(JSON.stringify(res.data))
-      console.log(res)
-    })
-  })
-
+function Profile(props) {
+  console.log(props)
   return (
     <div className='container'>
         <h1>Profile</h1>
-        { email }
+        <table>
+          <tr>
+            <th>Nick Name</th>
+            <td>{ props.location.user.nickname }</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{ props.location.user.username }</td>
+          </tr>
+        </table>
     </div>
   )
 }

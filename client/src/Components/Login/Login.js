@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import  { useNavigate  } from 'react-router-dom'
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword ] = useState('')
+  const navigate = useNavigate ()
+  var user = null
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
@@ -13,11 +16,9 @@ function Login() {
     setPassword(e.target.value)
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("Email: " + email + " Password: " + password)
-
-    axios({
+    const res = await axios({
       method: "POST",
       data: {
         username: email,
@@ -26,9 +27,14 @@ function Login() {
       withCredentials: true,
       url: "http://localhost:3500/login",
     })
-    .then((res) => {
-      console.log(res.data)
-    })
+
+    // store the user in localStorage
+    user = res.data
+    console.log(user)
+    if(user) {
+      localStorage.setItem('user', JSON.stringify(user))
+      navigate("/")
+    }
   }
 
 
