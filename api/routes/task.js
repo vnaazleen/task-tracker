@@ -35,11 +35,13 @@ router.get('/tasks', async (req, res) => {
 
 // ------- EDIT A TASK -------------------
 router.put('/tasks/edit/:id', async (req, res) => {
-
+    console.log(req.body)
     if(req.isAuthenticated()) {
         const taskId = req.params.id
         const task = await Task.findByIdAndUpdate(req.params.id, req.body)
         await task.save()
+
+        console.log(task)
 
         res.send(await Task.findById(taskId))
     } else {

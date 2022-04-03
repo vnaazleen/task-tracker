@@ -18,3 +18,20 @@ export const createTask = (data) => axios(
     url: "http://localhost:3500/add",
   }
 )
+
+export const editTask = (data, id) => axios(
+  {
+    method: "PUT",
+    data: data,
+    withCredentials: true,
+    url: "http://localhost:3500/tasks/edit/" + id,
+  }
+)
+
+export const deleteTask = (id) => axios(
+  {
+    method: "DELETE",
+    withCredentials: true,
+    url: "http://localhost:3500/tasks/delete/" + id,
+  }
+)

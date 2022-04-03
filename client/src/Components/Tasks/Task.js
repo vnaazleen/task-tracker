@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { deleteTask, editTask } from '../../controller/taskController'
 import './Task.css'
+
+import { BsFillPenFill } from "react-icons/bs"
+import { BsFillTrashFill } from "react-icons/bs"
 
 function Task(props) {
 
+  const [ isChecked, setIsChecked ] = useState(props.task.checked)
+
+  function handleCheck(e) {
+    setIsChecked(!isChecked)
+
+    editTask({
+      title: props.task.title,
+      description: props.task.description,
+      priority: props.task.priority,
+      checked: !isChecked
+    }, props.task._id ).then((res) => {
+      console.log(res.data)
+    })
+  }
+
+  function handleDelete() {
+    deleteTask(props.task._id)
+    .then((res) => console.log(res.data))
+    window.location.reload()
+  }
 
   function getPriority(priority) {
     if (priority === 0) {
@@ -18,12 +42,24 @@ function Task(props) {
     <div className="card mt-2">
       <div className="card-body">
         <h5 className="card-title">
-          <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"></input>
+          <input className="form-check-input" type="checkbox" checked={isChecked} onChange={handleCheck}/>
           &nbsp;&nbsp;
           { props.task.title }
         </h5>
         <p className="card-text">{ props.task.description }</p>
-        <span className={` ${ props.task.priority === 0 ? "Important" : props.task.priority === 1 ? "Moderate" : "Later"}`}>{ getPriority(props.task.priority) }</span>
+
+        <div className="components">
+            <span>
+              <span className={` ${ props.task.priority === 0 ? "Important" : props.task.priority === 1 ? "Moderate" : "Later"}`}>{ getPriority(props.task.priority) }</span>
+              { isChecked && <span className='completed'>Completed</span>}
+            </span>
+
+            <span>
+            <a href="/edit" className='btn btn-warning edit-btn'><BsFillPenFill/></a>
+            <button onClick={handleDelete} className='btn btn-danger del-btn'><BsFillTrashFill/></button>
+            </span>
+        </div>
+
       </div>
     </div>
   )

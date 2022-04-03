@@ -23,3 +23,25 @@
     border-radius: 25px;
     padding: 3px 7px 5px 7px;
 }
+
+.completed {
+    background-color: #84DFFF;
+    border: 1px solid #1572A1;
+    color: white;
+    border-radius: 25px;
+    padding: 3px 7px 5px 7px;
+    margin-left: 5px;
+}
+
+.components {
+    display: flex;
+    justify-content: space-between;
+}
+
+.del-btn {
+    margin-left: 5px;
+}
+
+.edit-btn {
+    color: white;
+}
