@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
+import './Navbar.css'
+
 function Navbar(props) {
 
   var user = props.user;
@@ -12,9 +14,11 @@ function Navbar(props) {
   }
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <a className="navbar-brand" href="/">ToDoApp</a>
+        <a className="navbar-brand" href="/">
+          <img className="logo" src="https://user-images.githubusercontent.com/54474853/161590324-353708d7-094f-426b-aa5f-3c740395b4a8.png" alt="Task Manager"/>
+        </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

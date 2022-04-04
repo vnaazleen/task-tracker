@@ -48,7 +48,7 @@ function Task(props) {
             </span>
 
             <span>
-            <button onClick={handleEdit} className='btn btn-warning edit-btn'><BsFillPenFill/></button>
+            <button onClick={handleEdit} className='btn btn-primary edit-btn'><BsFillPenFill/></button>
             <button onClick={handleDelete} className='btn btn-danger del-btn'><BsFillTrashFill/></button>
             </span>
         </div>

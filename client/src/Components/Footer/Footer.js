@@ -7,7 +7,7 @@ import './Footer.css'
 function Footer() {
   return (
     <div className='container footer'>
-        <p>&copy; Made with <FaHeart/> by <a href="https://github.com/vnaazleen" target="_blank">Vaseem Naazleen Shaik</a></p>
+        <p>&copy; Made with <FaHeart/> by <a class="link" href="https://github.com/vnaazleen" target="_blank">Vaseem Naazleen Shaik</a></p>
     </div>
   )
 }

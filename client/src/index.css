@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #3FC1C9 !important;
+  border: 1px #3FC1C9 solid !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 .2rem #3FC1C9 !important;
+}
+
+.btn-outline-primary {
+  color: white !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: #3FC1C9 !important;
+}
+
+.btn-outline-primary:hover {
+  color: white !important;
+  background-color: #3FC1C9 !important;;
+  border-color: #3FC1C9
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary.focus {
+  box-shadow: 0 0 0 .2rem #3FC1C9 !important;
+}

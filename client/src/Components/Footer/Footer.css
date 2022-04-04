@@ -1,6 +1,11 @@
 .footer {
     display: flex;
-    margin-top: 25vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     justify-content: center;
     vertical-align: middle;
+}
+
+.link {
+    color: #3FC1C9 !important;
 }
