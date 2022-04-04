@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import About from '../About/About';
 
 import Tasks from '../Tasks/Tasks'
 
@@ -18,7 +19,7 @@ function Home() {
   return (
     <div className='container'>
       <div className='mt-5 lead display-5'>Welcome{user ? <span>, {user.nickname}</span> : ""}!</div>
-      { user ? <Tasks/> : <p className='mt-5'>Please login, your tasks will appear here</p>}
+      { user ? <Tasks/> : <About/>}
     </div>
   )
 }

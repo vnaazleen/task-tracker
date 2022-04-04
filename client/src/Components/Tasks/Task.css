@@ -45,3 +45,16 @@
 .edit-btn {
     color: white;
 }
+
+.striked {
+    text-decoration: line-through;
+}
+
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+option {
+    text-align: left;
+}

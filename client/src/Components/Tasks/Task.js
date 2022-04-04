@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { deleteTask, editTask } from '../../controller/taskController'
+import React from 'react'
+import { deleteTask } from '../../controller/taskController'
 import { useNavigate } from 'react-router'
 
 import { BsFillPenFill } from "react-icons/bs"
@@ -10,20 +10,6 @@ import './Task.css'
 function Task(props) {
 
   const navigate = useNavigate()
-  const [ isChecked, setIsChecked ] = useState(props.task.checked)
-
-  function handleCheck(e) {
-    setIsChecked(!isChecked)
-
-    editTask({
-      title: props.task.title,
-      description: props.task.description,
-      priority: props.task.priority,
-      checked: !isChecked
-    }, props.task._id ).then((res) => {
-      console.log(res.data)
-    })
-  }
 
   function handleDelete() {
     deleteTask(props.task._id)
@@ -49,16 +35,16 @@ function Task(props) {
     <div className="card mt-2">
       <div className="card-body">
         <h5 className="card-title">
-          <input className="form-check-input" type="checkbox" checked={isChecked} onChange={handleCheck}/>
+          <input className="form-check-input" type="checkbox" checked={props.task.checked} onChange={() => props.handleCheckTask(props.task._id)}/>
           &nbsp;&nbsp;
-          { props.task.title }
+          <span className={` ${ props.task.checked ? "striked" : ""}`}>{ props.task.title }</span>
         </h5>
         <p className="card-text">{ props.task.description }</p>
 
         <div className="components">
             <span>
               <span className={` ${ props.task.priority === 0 ? "Important" : props.task.priority === 1 ? "Moderate" : "Later"}`}>{ getPriority(props.task.priority) }</span>
-              { isChecked && <span className='completed'>Completed</span>}
+              { props.task.checked && <span className='completed'>Completed</span>}
             </span>
 
             <span>

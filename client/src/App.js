@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import AddTask from './Components/Tasks/AddTask';
 import EditTask from './Components/Tasks/EditTask';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/login" element={<Login/>}/>
               <Route path="/register" element={<Register/>}/>
             </Routes>
+            <Footer/>
           </Router>
     </div>
   );
