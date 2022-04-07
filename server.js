@@ -64,6 +64,7 @@ app.use(authRouter)
 
 
 // ---------------- ROUTES ----------------
-app.listen(3500, () => {
+const PORT = 3500 || process.env.PORT
+app.listen(PORT, () => {
     console.log("App is running on port: " + 3000)
 })
