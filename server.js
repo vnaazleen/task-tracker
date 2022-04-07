@@ -74,5 +74,5 @@ if(process.env.NODE_ENV == "production") {
 // ---------------- ROUTES ----------------
 const PORT = 3500 || process.env.PORT
 app.listen(PORT, () => {
-    console.log("App is running on port: " + 3000)
+    console.log("App is running on port: " + PORT)
 })
