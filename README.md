@@ -1,17 +1,26 @@
-# todolist-app
+# Task Tracker Application
 
-Todo List:
-- Add nickname field to user  <-- done
-- Add reference to user and task <-- done
-- display users tasks in home page <-- done
-- Add check box to task <-- done
-- Add status field to task 
-- Add edit functionality <-- done
-- Add delete functionality <-- done
-- If user  <-- done
-    - is logged in, then display tasks on home page
-    - orelse about the app
-- Add diff tabs, to filter tasks based on priority <-- done
+A Todo list application with priorities & filtering.
 
+## Features
+* Register / Login
+* Add a Task (Task name, Task description, Priority)
+* Edit a Task (Change Task name or Task description or its priority)
+* Mark task as Completed (Strike a Task)
+* Delete a Task (Remove task from Task list)
+* Filter tasks based on
+    * Priority
+    * Completed or not
+ 
 
-Last edited line: 
+## Tech stack
+* MERN Stack
+    * MongoDB
+    * Express.js
+    * React.js
+    * Node.js
+* Passport.js 
+
+## Demo
+
+https://user-images.githubusercontent.com/54474853/208284565-03666c91-de30-4d37-b951-e12afe091b43.mov
