@@ -17,9 +17,10 @@ A Todo list application with priorities & filtering.
 * MERN Stack
     * MongoDB
     * Express.js
-    * React.js
+    * React.js    
     * Node.js
-* Passport.js 
+* Passport.js (Authentication)
+* Bootstrap (Styling UI Components)
 
 ## Demo
 
